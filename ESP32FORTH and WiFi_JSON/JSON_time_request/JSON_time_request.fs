@@ -13,7 +13,7 @@ create stringbuf 120 allot      \ buffer for getString
     stringbuf 120 erase    
 
 : wificonnection    ( -- )          \ connect to my wifi
-    z" yourssid" z" yourpsw" login 
+    z" TUKKUK1" z" SHX3U21a" login 
 ;
 
 : retriveJSON   ( --- z-payload) \ retrive payload from WorldTime
@@ -34,11 +34,11 @@ create stringbuf 120 allot      \ buffer for getString
 : retriveJSONdata ( z-payload--- )
     errorbuf JSON.deserialize
     cr ." JSON deserialize error: " z>s type
-    stringbuf z" datetime" JSON.getString
+    stringbuf 120 z" datetime" JSON.getString
     cr ." retrived datetime: " z>s type
-    stringbuf z" timezone" JSON.getString
+    stringbuf 120 z" timezone" JSON.getString
     cr ." retrived timezone: " z>s type
-    stringbuf z" client_ip" JSON.getString
+    stringbuf 120 z" client_ip" JSON.getString
     cr ." my IP address: " z>s type
     z" day_of_week" JSON.getNum 
     cr ." day of week: " .
